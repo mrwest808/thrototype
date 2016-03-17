@@ -1,0 +1,35 @@
+{
+  "name": "<%= name %>",
+  "private": true,
+  "version": "0.0.1",
+  "description": "<%= description %>",
+  "scripts": {
+    "build": "gulp build",
+    "dev": "gulp serve"
+  },
+  "devDependencies": {
+    "babel-core": "^6.7.2",
+    "babel-plugin-lodash": "2.2.1",
+    "babel-preset-es2015": "^6.6.0",
+    "babelify": "^7.2.0",
+    "browser-sync": "^2.11.1",
+    "browserify": "^13.0.0",
+    "del": "^2.2.0",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-if": "^2.0.0",
+    "gulp-load-plugins": "^1.2.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.2.0",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-swig": "^0.8.0",<% if (includeJquery) { %>
+    "jquery": "^2.2.2",<% } if (includeLodash) { %>
+    "lodash": "^4.6.1",<% } %>
+    "run-sequence": "^1.1.5",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0",
+    "watchify": "^3.7.0"
+  }
+}

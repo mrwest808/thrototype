@@ -1,0 +1,49 @@
+$rules: (
+  'margin': 'm',
+  'padding': 'p'
+);
+
+$spacing: (
+  n: 0,
+  s: $size-sm,
+  m: $size-md,
+  l: $size-lg
+);
+
+@each $rule, $name in $rules {
+  .#{$util-prefix}#{$name} {
+    @each $flag, $size in $spacing {
+      // Single directions
+      &t-#{$flag} {
+        #{$rule}-top: $size;
+      }
+
+      &b-#{$flag} {
+        #{$rule}-bottom: $size;
+      }
+
+      &l-#{$flag} {
+        #{$rule}-left: $size;
+      }
+
+      &r-#{$flag} {
+        #{$rule}-right: $size;
+      }
+
+      // Multiple directions
+      &a-#{$flag} {
+        #{$rule}: $size;
+      }
+
+      &y-#{$flag} {
+        #{$rule}-top: $size;
+        #{$rule}-bottom: $size;
+      }
+
+      &x-#{$flag} {
+        #{$rule}-left: $size;
+        #{$rule}-right: $size;
+      }
+    }
+  }
+}

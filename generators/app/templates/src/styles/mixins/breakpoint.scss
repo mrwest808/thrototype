@@ -1,0 +1,11 @@
+@mixin breakpoint($size, $maxWidth: false) {
+  @if $maxWidth {
+    $width-property: 'max-width';
+  } @else {
+    $width-property: 'min-width';
+  }
+
+  @media screen and (#{$width-property}: $size) {
+    @content;
+  }
+}
