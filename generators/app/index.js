@@ -22,7 +22,7 @@ module.exports = generators.Base.extend({
         type: 'input',
         name: 'name',
         message: 'Project name',
-        default: 'thrototype'
+        default: process.cwd().split('/').pop()
       },
       {
         type: 'input',
