@@ -110,7 +110,7 @@ function templates(development) {
 
 
 gulp.task('clean', () => {
-  del(paths.dest, { force: true })
+  return del(paths.dest, { force: true })
 })
 
 
