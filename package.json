@@ -1,6 +1,6 @@
 {
   "name": "generator-thrototype",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A throw-away prototyping generator",
   "main": "generators/index.js",
   "repository": {
