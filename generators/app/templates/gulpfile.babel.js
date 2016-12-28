@@ -1,3 +1,5 @@
+import { existsSync } from 'fs'
+import { basename } from 'path'
 import gulp from 'gulp'
 import gulpLoadPlugins from 'gulp-load-plugins'
 import browserSync from 'browser-sync'
@@ -30,8 +32,8 @@ const paths = {
   },
   templates: {
     base: 'src/templates/pages/',
-    data: 'src/templates/data/',
-    src: 'src/templates/pages/**/*.html',
+    data: './src/templates/data/',
+    src: 'src/templates/pages/**/*.pug',
     watch: 'src/templates/**/*'
   }
 }
@@ -97,15 +99,21 @@ gulp.task('templates', () => templates(true))
 gulp.task('templates:build', () => templates())
 function templates(development) {
   return gulp.src(paths.templates.src, {
-        base: paths.templates.base
-      })
-      .pipe($.swig({
-        defaults: { cache: false },
-        load_json: true,
-        json_path: paths.templates.data
-      }))
-      .pipe(gulp.dest(destination()))
-      .pipe($.if(development, bs.reload({ stream: true })))
+      base: paths.templates.base
+    })
+    .pipe($.data(file => {
+      const filename = basename(file.path).replace('.pug', '')
+      const filepath = paths.templates.data + filename + '.json'
+
+      if (existsSync(filepath)) {
+        return require(filepath)
+      }
+
+      return {}
+    }))
+    .pipe($.pug())
+    .pipe(gulp.dest(destination()))
+    .pipe($.if(development, bs.reload({ stream: true })))
 }
 
 

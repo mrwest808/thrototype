@@ -18,13 +18,14 @@
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.0",
     "gulp-concat": "^2.6.0",
+    "gulp-data": "^1.2.1",
     "gulp-if": "^2.0.0",
     "gulp-load-plugins": "^1.2.0",
     "gulp-plumber": "^1.1.0",
     "gulp-rename": "^1.2.2",
+    "gulp-pug": "^3.2.0",
     "gulp-sass": "^2.2.0",
-    "gulp-sourcemaps": "^1.6.0",
-    "gulp-swig": "^0.8.0",<% if (includeJquery) { %>
+    "gulp-sourcemaps": "^1.6.0",<% if (includeJquery) { %>
     "jquery": "^2.2.2",<% } if (includeLodash) { %>
     "lodash": "^4.6.1",<% } %>
     "run-sequence": "^1.1.5",
